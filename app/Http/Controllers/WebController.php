@@ -23,9 +23,12 @@ class WebController extends Controller
 
 
     }
-    public function search(){
+    public function search(Request $request){
+        $q = $request->get("q");
+        $limit = $request->has("limit")?$request->get("limit"):18;
         $categories = Category::limit(10)->get();
-        $products = Products::paginate(18);
+        $products = Products::where("name",$q)->paginate(18);
+        $products = Products::where("name",'like',"%$q%")->paginate($limit);
         return view("search",
             [
                 "categories"=>$categories,

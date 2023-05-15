@@ -3,7 +3,7 @@
         <h4>Department</h4>
         <ul>
             @foreach($categories as $item)
-                <li><a href="#">{{$item->name}}</a></li>
+                <li><a href="/category={{$c->id}}">{{$item->name}}</a></li>
             @endforeach
 
 
