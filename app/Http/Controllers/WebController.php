@@ -12,16 +12,25 @@ class WebController extends Controller
 
         //lay san pham trong db
         $new_products = Products::orderBy("id","desc")->limit(6)->get();
-        $new_categories = Category::limit(10)->get();
-        $new_productss =Products::limit(12)->get();
+        $categories = Category::limit(10)->get();
+       $products = Products::paginate(12);
         return view("welcome",
         ["new_products"=>$new_products,
-            "categories"=>$new_categories,
-            "new_productss"=>$new_productss
+            "categories"=>$categories,
+          "products"=>$products
         ]);
 
 
 
+    }
+    public function search(){
+        $categories = Category::limit(10)->get();
+        $products = Products::paginate(18);
+        return view("search",
+            [
+                "categories"=>$categories,
+                "products"=>$products
+            ]);
     }
     public function shop(){
         return view("shop");
