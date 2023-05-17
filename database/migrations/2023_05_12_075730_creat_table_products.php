@@ -16,13 +16,14 @@ class CreatTableProducts extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("slug")->unique();
             $table->unsignedDecimal("price")->unique();
             $table->string("thumbnail")->nullable();
             $table->unsignedInteger("qty");
             $table->text("description")->nullable();
-            $table->unsignedBigInteger("gategory_id");
+            $table->unsignedBigInteger("category_id");
             $table->timestamps();
-            $table->foreign("gategory_id")->references("id")->on("categories");
+            $table->foreign("category_id")->references("id")->on("categories");
         });
     }
 

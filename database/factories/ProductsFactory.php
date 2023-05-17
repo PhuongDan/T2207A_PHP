@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
 
 class ProductsFactory extends Factory
 {
@@ -13,14 +15,15 @@ class ProductsFactory extends Factory
      */
     public function definition(): array
     {
-
+       $name= $this->faker->name;
         return [
-            "name"=>$this->faker->name,
+            "name"=>$name,
+            "slug"=>Str::slug($name),
             "price"=>random_int(100,1000),
             "thumbnail"=>"img/product/product-".random_int(1,12).".jpg",
             "qty"=>random_int(5,100),
             "description"=>$this->faker->text(1000),
-            "gategory_id"=>random_int(1,100)
+            "category_id"=>random_int(1,10)
 
         ];
     }

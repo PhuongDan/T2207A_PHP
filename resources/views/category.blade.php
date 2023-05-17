@@ -1,8 +1,8 @@
 @extends("layouts.layout")
-@section("title","Search: ".app("request")->input('q'))
+@section("title",$category->name)
 @section("main")
-<html>
-<body>
+    <html>
+    <body>
 
     <div class="row">
         <div class="col-lg-3 col-md-5">
@@ -34,14 +34,14 @@
                     </div>
                 </div>
             </div>
-       @include("html.home.grid")
+            @include("html.home.grid")
 
         </div>
 
 
 
-        </body>
+    </body>
 
-        </html>
+    </html>
 @endsection
 

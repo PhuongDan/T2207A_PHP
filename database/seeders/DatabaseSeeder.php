@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-       // \App\Models\Category::factory(100)->create();
-        \App\Models\Brand::factory(1000)->create();
-       // \App\Models\Products::factory(1000)->create();
+        \App\Models\Category::factory(10)->create();
+//        \App\Models\Brand::factory(1000)->create();php artisan migrate:refresh --seed
+        \App\Models\Products::factory(1000)->create();
     }
 }

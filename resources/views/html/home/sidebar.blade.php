@@ -2,8 +2,8 @@
     <div class="sidebar__item">
         <h4>Department</h4>
         <ul>
-            @foreach($categories as $item)
-                <li><a href="/category={{$c->id}}">{{$item->name}}</a></li>
+            @foreach($categories as $c)
+                <li><a href="{{url("/category",["id"=>$c->slug])}}">{{$c->name}}</a></li>
             @endforeach
 
 

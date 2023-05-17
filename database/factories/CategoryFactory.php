@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
 
 class CategoryFactory extends Factory
 {
@@ -13,9 +15,10 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->unique()->domainName;
         return [
-            "name"=>$this->faker->unique()->domainName,
-            "slug"=>$this->faker->unique()->slug
+            "name"=>$name,
+            "slug"=>Str::slug($name)
         ];
     }
 }
